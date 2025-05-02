@@ -87,11 +87,31 @@ To model CIFAR10 we used the UNET architechture , with downsampling blocks that 
 
 ![block](assets/general/Blocks.png)
 ![cifa_model](assets/general/Cifar_model.png) -->
-<!-- 
 
-## Results
 
-The table results for 2D dataset and Image dataset are as follows, -->
+### Experimental results
+
+#### 2D Dataset
+The results for the 2D dataset are presented below:
+- **Mean Distance**: Measures the Euclidean distance between the means of the two distributions.
+- **Covariance Distance**: Represents the Frobenius norm of the difference between the covariance matrices of the two distributions.
+
+![2D Results](assets/general/2D_results.png)
+
+#### Image Dataset
+The results for the image dataset are shown below. The sample quality is assessed using **FID (Fréchet Inception Distance) scores**.
+
+![Image Results](assets/general/image_results.png)
+
+
+
+
+
+
+
+
+
+
 
 
 
