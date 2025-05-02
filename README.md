@@ -64,12 +64,12 @@ This notebook is designed for running experiments on the CIFAR10 dataset. The fo
 - **`scale_type`**: Specify the scaling method to use.
 - **`sample_type`**: Choose the sampling method for generating data from the trained model.
 
-**Note:** The performance of image-based models, particularly score-based models, may not be optimal. Precise computation for continuous-time diffusion models in high-dimensional image spaces (like CIFAR10) requires modeling both reverse and forward Stochastic Differential Equations (SDEs), which are computationally intensive.
+**Note:** The performance of image-based models, particularly score-based models, may not be optimal. Precise computation for continuous-time diffusion models in high-dimensional image spaces (like CIFAR10) requires modeling both reverse and forward Stochastic Differential Equations (SDEs), which is not in the scope of this research.
 
 Additionally, the **`num_steps`** parameter is used to control the number of reverse diffusion steps during sampling.
 
 #### **Boolean Flags:**
-The following boolean flags can be toggled to customize the experiment:
+The following boolean flags can be used to customize the experiment:
 
 - **`plot_loss_by_epochs`**: Plot the loss versus epochs graph.
 - **`plot_loss_by_time`**: Plot the loss versus time graph.
