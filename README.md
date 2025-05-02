@@ -5,7 +5,7 @@ Diffusion models have established themselves as highly effective generative fram
 The table below provide an overview of all the loss formulations across different scenarios. While the NELBO and the rescaled loss are equivalent and comparable, the weighted
 losses are not equivalent and are expected to exhibit different empirical performance.
 
-![Table for loss formulations](assets/tables/LF_Table.png)
+![Table for loss formulations](assets/general/LF_Table.png)
 
 ## Instructions for Code
 
@@ -78,6 +78,22 @@ The following boolean flags can be toggled to customize the experiment:
 - **`save_losses`**: Save the loss values during training.
 
 Adjust these settings to optimize experiments for specific use case or research objectives.
+
+## Model
+
+For modeling the 2D dataset we used a very simple neural network architecture with 7 fully connected layers and ReLU ativation as shown below. 
+
+![2d_model](assets/general/2D_model.png)
+
+To model CIFAR10 we used the UNET architechture , with downsampling blocks that reduces the spatial dimensions, mid blocks, working at a same resolution and upsampling blocks that increase the spatial resolution and have residual connections from the corresponding down sample block.
+
+![block](assets/general/Blocks.png)
+![cifa_model](assets/general/Cifar_model.png)
+
+
+## Results
+
+The table results for 2D dataset and Image dataset are as follows,
 
 
 
