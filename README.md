@@ -79,7 +79,7 @@ The following boolean flags can be toggled to customize the experiment:
 
 Adjust these settings to optimize experiments for specific use case or research objectives.
 
-## Model
+<!-- ## Model
 
 For modeling the 2D dataset we used a very simple neural network architecture with 7 fully connected layers and ReLU ativation as shown below. 
 
@@ -88,12 +88,12 @@ For modeling the 2D dataset we used a very simple neural network architecture wi
 To model CIFAR10 we used the UNET architechture , with downsampling blocks that reduces the spatial dimensions, mid blocks, working at a same resolution and upsampling blocks that increase the spatial resolution and have residual connections from the corresponding down sample block.
 
 ![block](assets/general/Blocks.png)
-![cifa_model](assets/general/Cifar_model.png)
-
+![cifa_model](assets/general/Cifar_model.png) -->
+<!-- 
 
 ## Results
 
-The table results for 2D dataset and Image dataset are as follows,
+The table results for 2D dataset and Image dataset are as follows, -->
 
 
 
