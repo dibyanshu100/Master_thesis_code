@@ -5,4 +5,5 @@ Diffusion models have established themselves as highly effective generative fram
 The table below provide an overview of all the loss formulations across different scenarios. While the NELBO and the rescaled loss are equivalent and comparable, the weighted
 losses are not equivalent and are expected to exhibit different empirical performance.
 
+![Table for loss formulations](assets/tables/LF_Table.png)
 
