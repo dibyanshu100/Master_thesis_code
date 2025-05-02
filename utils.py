@@ -655,7 +655,7 @@ def plot_loss_across_epochs(base_path, loss_files, executions, loss_type, scale_
                     loss_key = loss_file.split('_')[2]
                     loss_data[data_type][loss_key].append(loss)
     # Create a 2x2 subplot grid
-    _, axes = plt.subplots(2, 2, figsize=(10, 10), sharey=True)
+    _, axes = plt.subplots(1, 4, figsize=(20, 5), sharey=True)
     axes = axes.flatten()
     for i, (data_type, loss_functions) in enumerate(loss_data.items()):
         ax = axes[i]
@@ -748,7 +748,7 @@ def plot_equivalent_losses(Equivalent_losses):
     colours = ['#ff7f0e', '#1f77b4', '#2ca02c', '#d62728']  # Corresponding colors for each loss type
     
     # Set up the figure with 4 rows and 1 column
-    fig, axes = plt.subplots(2, 2, figsize=(10, 10), sharey=True)  
+    fig, axes = plt.subplots(1, 4, figsize=(20, 5), sharey=True)  
     axes = axes.flatten()
     data_types = list(Equivalent_losses.keys())  # Extract the keys (data types)
     
@@ -845,3 +845,58 @@ def plot_samples(data, datatype):
 
     plt.tight_layout()  # Adjust layout to prevent overlap
     plt.show()
+
+
+def plot_variance_weighted(loss_formulations,data_type):
+    base_paths = [
+        "saved_data/2Dim/Weighted/Execution_1",
+        "saved_data/2Dim/Weighted/Execution_2",
+        "saved_data/2Dim/Weighted/Execution_3",
+    ]
+
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+    fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+    axes = axes.flatten()
+
+    for idx, loss_formulation in enumerate(loss_formulations):
+        combined_variances = {}
+
+        for base_path in base_paths:
+            path = f"{base_path}/{loss_formulation.__name__}_training_results"
+            results = load_data(path)
+            lt_per_epoch = results[data_type]['loss_vs_time_per_epoch']
+            
+            master_dict = {}
+            for di in lt_per_epoch:
+                for key, value in di.items():
+                    master_dict.setdefault(key, []).append(value)
+            
+            for key, values in master_dict.items():
+                variance = np.var(values)
+                combined_variances.setdefault(key, []).append(variance)
+
+        keys = list(combined_variances.keys())
+        mean_variances = [np.mean(combined_variances[key]) for key in keys]
+        timesteps = np.linspace(0, 1, len(keys))
+        ax = axes[idx]
+        ax.bar(
+            timesteps, 
+            mean_variances, 
+            color=colors[idx], 
+            edgecolor='black', 
+            alpha=0.8, 
+            width=0.05
+        )
+        ax.set_xlabel('Timesteps', fontsize=10, labelpad=10)
+        ax.set_ylabel('Variance', fontsize=10, labelpad=10)
+        ax.set_title(f"{loss_formulation.__name__}", fontsize=10, weight='bold')
+        ax.set_xticks(np.linspace(0, 1, 11))  
+        ax.set_xticklabels([f"{t:.1f}" for t in np.linspace(0, 1, 11)], rotation=45)
+        ax.grid(axis='y', linestyle='--', alpha=0.7)  
+        ax.spines['top'].set_visible(False)  
+        ax.spines['right'].set_visible(False) 
+
+    plt.tight_layout()
+    fig.suptitle(f'Variance in objective vs Timesteps - {data_type}', fontsize=12, weight='bold', y=1.02)
+    plt.show()
+    
