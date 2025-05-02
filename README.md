@@ -77,8 +77,6 @@ The following boolean flags can be used to customize the experiment:
 - **`save_params`**: Save the model parameters after training.
 - **`save_losses`**: Save the loss values during training.
 
-Adjust these settings to optimize experiments for specific use case or research objectives.
-
 <!-- ## Model
 
 For modeling the 2D dataset we used a very simple neural network architecture with 7 fully connected layers and ReLU ativation as shown below. 
