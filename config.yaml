@@ -1,0 +1,34 @@
+training_2D:
+  x_dim: 2
+  batch_size: 1024
+  epochs: 100
+  learning_rate: 0.001
+  hidden_layers: 7
+  hidden_dim: 512
+  time_emb_dim: 10
+  device: 'cuda'
+
+training_Ndim:
+  model_params:
+    device: 'cuda'
+    in_channels : 3
+    im_size : 32
+    down_channels : [32, 64, 128, 256]
+    mid_channels : [256, 256, 128]
+    down_sample : [True, True, False]
+    time_emb_dim : 128
+    num_down_layers : 6
+    num_mid_layers : 6
+    num_up_layers : 6
+    num_heads : 4
+
+  train_params:
+    task_name: 'default'
+    batch_size: 128
+    num_epochs: 400
+    num_samples : 100
+    num_grid_rows : 10
+    lr: 0.0001
+    beta1: 0.1
+    beta2: 0.9
+    ckpt_name: 'ddpm_ckpt.pth'
