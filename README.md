@@ -103,6 +103,17 @@ The results for the image dataset are shown below. The sample quality is assesse
 
 ![Image Results](assets/general/image_results.png)
 
+### Generated samples
+
+#### 2D Dataset
+
+![2D samples](assets/general/2D-generated.png)
+
+#### Image Dataset
+
+![image samples](assets/general/images-generated.png)
+
+
 
 
 
