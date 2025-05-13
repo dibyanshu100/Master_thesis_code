@@ -214,34 +214,6 @@ def run_saved_model_2D(path, data_type=None, sampling=None, plot_samples= False)
     
     return untrained_model, final_model
 
-# def evaluate_on_scaled_loss(test_data, model_path):
-#     """ Function to compare weighted objectives to equivalent x objectives"""
-#     device = config['device']
-#     batch = config['batch_size']
-#     epochs = config['epochs']
-#     untrained_model, final_model= run_saved_model_2D(model_path)
-#     test_loader = make_batches(test_data, device, batch_size = batch, shuffle = False)
-
-#     loss_space = ['X', 'EP_X_EQ', 'V_X_EQ', 'SC_X_EQ']
-#     test_loss_dict = {}
-#     final_model.eval()
-#     untrained_model.eval()
-#     for scale_type in loss_space:
-#         test_epoch_losses = []
-#         for epoch in tqdm(range(epochs)):
-#             test_batch_loss = 0
-#             for batch,_ in test_loader:
-#                 if epoch == 0:
-#                     loss= l.diffusion_loss_x(batch, untrained_model, device, 'test', scale_type)
-#                 else:
-#                     loss= l.diffusion_loss_x(batch, final_model, device, 'test', scale_type)
-#                 test_batch_loss += loss.item()
-#             test_epoch_losses.append(test_batch_loss/len(test_loader))
-        
-#         test_loss_dict[scale_type] = test_epoch_losses
-    
-#     return test_loss_dict
-
 def evaluate_on_scaled_loss(test_data, data_name):
     """ Function to compare weighted objectives to equivalent x objectives"""
     base_path = "saved_models/2Dim/Weighted"
@@ -285,31 +257,6 @@ def evaluate_on_scaled_loss(test_data, data_name):
         test_loss_dict[loss_space[i]] = test_epoch_losses
         i=i+1
 
-
-    # for loss_form in loss_space:
-    #     model = models_list[i]
-    #     model_path = os.path.join(base_path, data_name, f"{model}")
-    #     untrained_model, final_model = run_saved_model_2D(model_path)
-    #     test_loader = make_batches(test_data, device, batch_size=batch, shuffle=False)
-    #     test_loss_dict = {}
-    #     final_model.eval()
-    #     untrained_model.eval()
-    #     test_epoch_losses = []
-        
-    #     # Appropriate loss function
-    #     loss_fn = getattr(l, f'diffusion_loss_{loss_form}')
-    #     print(loss_fn)
-    #     scale_type = 'Rescaled'
-    #     for epoch in tqdm(range(epochs)):
-    #         test_batch_loss = 0
-    #         for batch, _ in test_loader:
-    #             model = final_model #untrained_model if epoch == 0 else final_model
-    #             loss = loss_fn(batch, model, device, 'test', scale_type)
-    #             test_batch_loss += loss.item()
-    #         test_epoch_losses.append(test_batch_loss / len(test_loader))
-        
-    #     test_loss_dict[loss_form] = test_epoch_losses
-    #     i=i+1
     return test_loss_dict
 
 
