@@ -9,17 +9,11 @@ losses are not equivalent and are expected to exhibit different empirical perfor
 
 ## Instructions for Code
 
-### First download the pre-trained models in the code directory using below instructions
+### Download the pre-trained models in the code directory
 ```bash
 pip install gdown
-```
-```bash
 cd code
-```
-```bash 
 gdown https://drive.google.com/uc?id=1wGA80EU1sYivY0SDLkdJD7NuYan9FdiJ
-```
-```bash
 unzip saved_models.zip
 ```
 
