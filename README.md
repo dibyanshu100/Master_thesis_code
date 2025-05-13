@@ -5,7 +5,7 @@ Diffusion models have established themselves as highly effective generative fram
 The table below provide an overview of all the loss formulations across different scenarios. While the NELBO and the rescaled loss are equivalent and comparable, the weighted
 losses are not equivalent and are expected to exhibit different empirical performance.
 
-![Table for loss formulations](assets/general/LF_Table.png)
+![Table for loss formulations](code/assets/general/LF_Table.png)
 
 ## Instructions for Code
 
@@ -96,22 +96,22 @@ The results for the 2D dataset are presented below:
 - **Mean Distance**: Measures the Euclidean distance between the means of the two distributions.
 - **Covariance Distance**: Represents the Frobenius norm of the difference between the covariance matrices of the two distributions.
 
-![2D Results](assets/general/2D_results.png)
+![2D Results](code/assets/general/2D_results.png)
 
 #### Image Data
 The results for the image dataset are shown below. The sample quality is assessed using **FID (Fréchet Inception Distance) scores**.
 
-![Image Results](assets/general/image_results.png)
+![Image Results](code/assets/general/image_results.png)
 
 ### Generated samples
 
 #### 2D data 
 
-![2D samples](assets/general/2D-generated.png)
+![2D samples](code/assets/general/2D-generated.png)
 
 #### Image Data
 
-![image samples](assets/general/images-generated.png)
+![image samples](code/assets/general/images-generated.png)
 
 
 
