@@ -20,7 +20,7 @@ This repository supports experiments on two types of datasets:
 2. **Image Dataset**: 
    - CIFAR10
 
-### Download the pre-trained models in the code directory
+### Download the pre-trained models
 ```bash
 pip install gdown
 cd code
