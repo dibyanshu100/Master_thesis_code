@@ -78,24 +78,9 @@ Additionally, the **`num_steps`** parameter is used to control the number of rev
 
 #### **Boolean Flags:**
 The following boolean flags can be used to customize the experiment:
-
-- **`plot_loss_by_epochs`**: Plot the loss versus epochs graph.
-- **`plot_loss_by_time`**: Plot the loss versus time graph.
 - **`generate_samples`**: Generate and display samples from the trained model.
 - **`save_params`**: Save the model parameters after training.
 - **`save_losses`**: Save the loss values during training.
-
-<!-- ## Model
-
-For modeling the 2D dataset we used a very simple neural network architecture with 7 fully connected layers and ReLU ativation as shown below. 
-
-![2d_model](assets/general/2D_model.png)
-
-To model CIFAR10 we used the UNET architechture , with downsampling blocks that reduces the spatial dimensions, mid blocks, working at a same resolution and upsampling blocks that increase the spatial resolution and have residual connections from the corresponding down sample block.
-
-![block](assets/general/Blocks.png)
-![cifa_model](assets/general/Cifar_model.png) -->
-
 
 ### Experimental results
 
